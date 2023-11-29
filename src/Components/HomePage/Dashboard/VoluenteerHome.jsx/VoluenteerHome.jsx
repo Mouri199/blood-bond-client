@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
-import useAuth from '../Hook/useAuth';
+import { useEffect, useState } from "react";
+import useAuth from "../../../Hook/useAuth";
 
-const AdminUser = () => {
+
+const VoluenteerHome = () => {
     const { user } = useAuth();
     const [userData, setUserData] = useState(null);
 
@@ -10,7 +11,7 @@ const AdminUser = () => {
             fetch(`http://localhost:8000/profile?email=${user.email}`)
                 .then((res) => res.json())
                 .then((data) => {
-                
+
                     const matchedUser = data.find((userData) => userData.email === user.email);
                     setUserData(matchedUser);
                 })
@@ -26,7 +27,7 @@ const AdminUser = () => {
                         <h3 className="lg:text-3xl font-bold">{user?.displayName}</h3>
                     </div>
                     <div className="flex items-center gap-3">
-                      
+
                         <button className="bg-redclr text-lg rounded-lg lg:p-1">Edit Profile</button>
                     </div>
                 </div>
@@ -93,4 +94,4 @@ const AdminUser = () => {
     );
 };
 
-export default AdminUser;
+export default VoluenteerHome;

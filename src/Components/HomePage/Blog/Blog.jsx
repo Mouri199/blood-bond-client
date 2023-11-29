@@ -20,7 +20,7 @@ const Blog = () => {
 
             <BlogBanner></BlogBanner>
 
-            <div className='grid my-16 grid-cols-1 max-w-[600px] mx-auto gap-10'>
+            <div className='grid my-16 lg:grid-cols-2 grid-cols-1 lg:mx-20 gap-10'>
                 {
                     blog?.map(blogs => <Blogs key={blogs.id} blogs={blogs}></Blogs>)
                 }

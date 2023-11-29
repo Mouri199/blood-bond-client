@@ -20,6 +20,9 @@ import UserDonationRequest from "../Components/HomePage/Dashboard/UsersDonationR
 import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
 import AdminCreateDonation from "../Components/HomePage/Dashboard/AdminCreateDonation/AdminCreateDonation";
 import AdminUser from "../Components/AdminUser/AdminUser";
+import WelcomeDashboard from "../Components/HomePage/Dashboard/WelcomeDashboard/WelcomeDashboard";
+import ContentManagement from "../Components/HomePage/Dashboard/ContentManagement/ContentManagement";
+import VoluenteerHome from "../Components/HomePage/Dashboard/VoluenteerHome.jsx/VoluenteerHome";
 
 
 
@@ -82,6 +85,10 @@ export const router = createBrowserRouter([
         element: <UserProfile></UserProfile>
       },
       {
+        path: '/dashboard/welcome',
+        element: <WelcomeDashboard></WelcomeDashboard>
+      },
+      {
         path: '/dashboard/mydonation',
         element: <MyDonation></MyDonation>
       },
@@ -92,6 +99,10 @@ export const router = createBrowserRouter([
       {
         path: '/dashboard/donationreq',
         element: <DonationRequest></DonationRequest>
+      },
+      {
+        path: '/dashboard/contentmanagement/addblog',
+        element: <ContentManagement></ContentManagement>
       },
 
       // admin route
@@ -111,7 +122,11 @@ export const router = createBrowserRouter([
         path: '/dashboard/adminuser',
         element: <AdminUser></AdminUser>
       },
-  
+      {
+        path: '/dashboard/voluenteerhome',
+        element: <VoluenteerHome></VoluenteerHome>
+      }
+
     ]
   }
 ]);

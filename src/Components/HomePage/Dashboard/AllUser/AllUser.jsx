@@ -1,7 +1,8 @@
-import {  useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { FaTrashAlt, FaUser } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hook/useAxiosSecure";
+import { BsThreeDotsVertical } from "react-icons/bs";
 
 
 const AllUser = () => {
@@ -14,7 +15,41 @@ const AllUser = () => {
         }
     })
 
-   
+
+
+    const handleActive = user => {
+        axiosSecure.patch(`/users/active/${user._id}`)
+            .then(res => {
+                console.log(res.data)
+                if (res.data.modifiedCount > 0) {
+                    refetch();
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: `You activeted ${user.name} now`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
+    }
+
+    const handleBlocked= user => {
+        axiosSecure.patch(`/users/blocked/${user._id}`)
+            .then(res => {
+                console.log(res.data)
+                if (res.data.modifiedCount > 0) {
+                    refetch();
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: `You blocked ${user.name}`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
+    }
 
     const handleAdmin = user => {
         axiosSecure.patch(`/users/admin/${user._id}`)
@@ -26,6 +61,38 @@ const AllUser = () => {
                         position: "top-end",
                         icon: "success",
                         title: `${user.name} is an Admin Now!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
+    }
+    const handleUser = user => {
+        axiosSecure.patch(`/users/user/${user._id}`)
+            .then(res => {
+                console.log(res.data)
+                if (res.data.modifiedCount > 0) {
+                    refetch();
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: `${user.name} is an User Now!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
+    }
+    const handleVoluenteer = user => {
+        axiosSecure.patch(`/users/voluenteer/${user._id}`)
+            .then(res => {
+                console.log(res.data)
+                if (res.data.modifiedCount > 0) {
+                    refetch();
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: `${user.name} is an Voluenteer Now!`,
                         showConfirmButton: false,
                         timer: 1500
                     });
@@ -51,7 +118,7 @@ const AllUser = () => {
                             refetch();
                             Swal.fire({
                                 title: "Deleted!",
-                                text: "Your file has been deleted.",
+                                text: "User has been deleted.",
                                 icon: "success"
                             });
                         }
@@ -68,18 +135,28 @@ const AllUser = () => {
 
                         </th>
                         <th scope="col" className="px-6 py-3">
+                            User Avater
+                        </th>
+                        <th scope="col" className="px-6 py-3">
                             User Name
                         </th>
                         <th scope="col" className="px-6 py-3">
                             Email
                         </th>
 
+
+
+                        <th scope="col" className="px-6 py-3">
+                            Status
+                        </th>
                         <th scope="col" className="px-6 py-3">
                             Role
                         </th>
-
                         <th scope="col" className="px-6 py-3">
-                            status
+                            Action
+                        </th>
+                        <th scope="col" className="px-6 py-3">
+                            Delete
                         </th>
                     </tr>
                 </thead>
@@ -95,34 +172,58 @@ const AllUser = () => {
                                 {donor.name
                                 }
                             </th>
+
+                            <td className="px-6 py-4"><img className="w-12" src={donor.photo} alt="" /></td>
                             <td className="px-6 py-4">{donor.email}</td>
-                            <td className="px-6 py-4">
-                                {donor.role === 'admin' ? "Admin" : <button
-                                    onClick={() => handleAdmin(donor)}
-                                    className="btn btn-ghost btn-lg">
-                                    <FaUser className="text-red-600"></FaUser>
-                                </button>}
+
+                            <td>
+                                {
+                                    donor.status ==='blocked' && <p>Blocked</p>
+                                }
+                                {
+                                    donor.status ==='active' && <p>Active</p>
+                                }
                             </td>
                             <td className="px-6 py-4">
-                                <button
-                                    onClick={() => handleDeleteUser(donor)}
-                                    className="btn btn-ghost btn-lg">
-                                    <FaTrashAlt className="text-red-600"></FaTrashAlt>
-                                </button>
 
-                                {/* <details>
-                                    <summary className="">Pending</summary>
-                                    <ul className=" shadow menu bg-base-100">
-                                        <li><a>Inprogress</a></li>
-                                        <li><a>Done</a></li>
-                                        <li><a>Cancel</a></li>
+                                {
+                                    donor.role === 'admin' && <p>Admin</p>
 
+                                }
+
+                                {
+                                    donor.role === 'voluenteer' && <p>Voluenteer</p>
+
+                                }
+
+                                {
+                                    donor.role === 'user' && <button
+
+                                        className="btn btn-ghost btn-lg">
+                                        <FaUser className="text-red-600"></FaUser>
+                                    </button>
+                                }
+
+
+                            </td>
+                            <td>
+                                <div className="dropdown">
+                                    <div tabIndex={0} role="button" className="lg:ml-10" ><BsThreeDotsVertical /> </div>
+                                    <ul className="dropdown-content z-[1] gap-3 menu  shadow bg-base-100 rounded-box w-32">
+                                        <button className="p-1 rounded-lg bg-redclr text-black hover:text-white" onClick={() => handleAdmin(donor)}>Admin</button>
+                                        <button className="p-1 rounded-lg bg-redclr text-black hover:text-white" onClick={() => handleUser(donor)}>User</button>
+                                        <button className="p-1 rounded-lg bg-redclr text-black hover:text-white" onClick={() => handleVoluenteer(donor)}>Voluenteer</button>
+                                        <button className="p-1 rounded-lg bg-redclr text-black hover:text-white" onClick={() => handleBlocked(donor)}>Blocked</button>
+                                        <button className="p-1 rounded-lg bg-redclr text-black hover:text-white" onClick={() => handleActive(donor)}>Active</button>
                                     </ul>
-                                </details> */}
-                                {/* <span className="px-3 py-1 font-semibold rounded-md dark:bg-violet-400 dark:text-gray-900">
-                                <span>Pending</span>
-                            </span> */}
+                                </div>
                             </td>
+                            <button
+                                onClick={() => handleDeleteUser(donor)}
+                                className="btn btn-ghost btn-lg">
+                                <FaTrashAlt className="text-red-600"></FaTrashAlt>
+                            </button>
+
                         </tr>
                     ))}
                 </tbody>

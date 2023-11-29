@@ -69,7 +69,7 @@ const Navbar = () => {
 
                                 {user ? (
                                     <li className="hover:underline hover:text-white">
-                                        <NavLink to="/dashboard">Dashboard</NavLink>
+                                        <NavLink to="/dashboard/welcome">Dashboard</NavLink>
                                     </li>
                                 ) : null}
 

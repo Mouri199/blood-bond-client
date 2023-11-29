@@ -4,7 +4,7 @@ import { LuForward } from "react-icons/lu";
 
 const BlogDetails = () => {
     const blogDetails = useLoaderData();
-    const { name, details, img } = blogDetails
+    const { title, content, img } = blogDetails
 
     return (
 
@@ -15,7 +15,7 @@ const BlogDetails = () => {
                     <figure className="px-10 pt-10">
                         <img src={img} alt="Shoes" className="rounded-xl h-[200px] lg:h-[300px]" />
                     </figure>
-
+                    <h3 className="lg:text-3xl font-semibold my-4">{title}</h3>
                     <div className=" ">
                         <div className="flex justify-between">
                             <div className="flex items-center gap-3">
@@ -29,7 +29,7 @@ const BlogDetails = () => {
                         </div>
                         <div className="lg:text-start  text-center">
                             <h2 className="lg:text-3xl font-semibold my-3 ">{name}</h2>
-                            <p>{details}</p>
+                            <p>{content}</p>
                         </div>
                     </div>
                 </div>
@@ -53,12 +53,12 @@ const BlogDetails = () => {
                         <p className="my-5 lg:text-xl">  Preserve Blood</p>
                         <p className="my-5 lg:text-xl"> Donation Center  </p>
                         <p className="my-5 lg:text-xl">  Proper Education </p>
-                       
+
+                    </div>
                 </div>
+
+
             </div>
-
-
-        </div>
         </div >
     );
 };

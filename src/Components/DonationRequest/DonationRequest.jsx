@@ -116,15 +116,7 @@ const DonationRequest = () => {
                                                         <li onClick={() => setDone(donor._id)}><a>Done</a></li>
                                                         <li onClick={() => setCancel(donor._id)}><a>Cancel</a></li></>
                                                 )}
-                                                {/* {
-                                                    idAdmin ? <li onClick={() => setInprogress(donor._id)}><a>Inprogress</a></li>
-                                                    <li onClick={() => setDone(donor._id)}><a>Done</a></li>
-                                                    <li onClick={() => setCancel(donor._id)}><a>Cancel</a></li>
-                                                        :
-                                                    <li onClick={() => setInprogress(donor._id)}><a>Inprogress</a></li>
-                                                <li onClick={() => setDone(donor._id)}><a>Done</a></li>
-                                                <li onClick={() => setCancel(donor._id)}><a>Cancel</a></li>
-                                                } */}
+                                           
                                             </ul>
                                         </details>
                                     </td>
