@@ -3,16 +3,19 @@ import useAuth from '../Hook/useAuth';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { Helmet } from 'react-helmet-async';
+import Swal from 'sweetalert2';
 
 const AdminUser = () => {
     const { user, load } = useAuth();
     const [userData, setUserData] = useState(null);
+
     console.log(userData);
     // const [loading, setLoading] = useState(true)
 
     const {
         register,
         handleSubmit,
+        
     } = useForm()
 
 
@@ -45,6 +48,8 @@ const AdminUser = () => {
         await axios.put(`https://blood-bond-server.vercel.app/users/${data.id}`, formData)
             .then((res) => {
                 console.log(res);
+               
+                Swal.fire("Updated Your Profile!")
 
             })
             .catch((error) => console.error("Error updating status:", error))
@@ -118,7 +123,7 @@ const AdminUser = () => {
                                         <input type="text" name="photo" defaultValue={userData?.blood} {...register("blood")} className="input input-bordered w-full" />
                                     </label>
                                 </div>
-                                <input type="submit" value="Add Blog" className="btn bg-redclr mx-auto  hover:bg-hoverclr w-full my-10" />
+                                <input type="submit" value="Update Profile" className="btn bg-redclr mx-auto  hover:bg-hoverclr w-full my-10" />
 
                             </form>
                             <div className="modal-action">
