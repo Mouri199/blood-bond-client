@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 
 const UserDonationRequest = () => {
@@ -14,6 +15,9 @@ const UserDonationRequest = () => {
     }, []);
     return (
         <div>
+              <Helmet>
+                <title>Blood Bond | User Donation Request </title>
+            </Helmet>
             <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
                 <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">

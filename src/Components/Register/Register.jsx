@@ -12,14 +12,16 @@ import useAxiosPublic from "../Hook/useAxiosPublic";
 
 
 const Register = () => {
+    
     const axiosPublic = useAxiosPublic();
+    const [load] = useAuth()
 
     const [districts, setDistricts] = useState([]);
     const [upazilas, setUpazilas] = useState([]);
   
    
 
-
+ 
     useEffect(() => {
         // Fetch district data
         fetch('http://localhost:8000/district')
@@ -79,6 +81,7 @@ const Register = () => {
                                         title: "Register Successful",
                                         text: "You have successfully registerd!",
                                     });
+                                    load()
                                     registerNavi('/');
                                 }
                             })
@@ -98,7 +101,7 @@ const Register = () => {
                 console.log(googleSign);
                 const userInfo = {
                     name: googleSign.displayName,
-                    email: googleSign.email,
+                    email: googleSign.email, 
 
 
                 }

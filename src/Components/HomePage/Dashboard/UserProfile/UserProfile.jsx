@@ -27,6 +27,8 @@ const UserProfile = () => {
                         <img className="lg:w-[300px] w-[100px]" src={user?.photoURL} alt="" />
                         <h3 className="lg:text-3xl font-bold">{user?.displayName}</h3>
                     </div>
+
+                  
                     <div className="flex items-center gap-3">
                         <FaBell className="lg:block hidden" />
                         <button className="bg-redclr text-lg rounded-lg lg:p-1">Edit Profile</button>
@@ -77,37 +79,25 @@ const UserProfile = () => {
                                     </tr>
                                     <tr className="bg-white dark:bg-gray-800">
                                         <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            Upazila
+                                        </th>
+                                        <td className="px-6 py-4">
+                                            {userData.upazila}
+                                        </td>
+                                    </tr>
+                                    <tr className="bg-white dark:bg-gray-800">
+                                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                             Blood Group
                                         </th>
                                         <td className="px-6 py-4">
                                             {userData.blood}
                                         </td>
                                     </tr>
-                                  
+
                                 </tbody>
                             </table>
                         </div>
 
-                        // <div className="px-20 py-10" key={userData._id}>
-                        //     <p className="text-center  text-3xl font-semibold">About</p>
-                        //     <div className="flex justify-center gap-28 ">
-                        //         <h3>Full Name</h3>
-                        //         <p>{user.displayName}</p>
-                        //     </div>
-                        //     <div className="flex justify-center  gap-28 ">
-                        //         <h3>Email</h3>
-                        //         <p>{user.email}</p>
-                        //     </div>
-                        //     <div className="flex ">
-                        //         <h3>District</h3>
-                        //         <p>{userData.district}</p>
-                        //     </div>
-
-                        //     <div className="flex">
-                        //         <h3>Blood Group</h3>
-                        //         <p>{userData.blood}</p>
-                        //     </div>
-                        // </div>
                     )}
                 </div>
             </div>

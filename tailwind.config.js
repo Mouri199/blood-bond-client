@@ -6,15 +6,18 @@ export default {
   ],
   theme: {
     extend: {
-      colors:{
+      colors: {
         redclr: "#E85A4F",
-        background:"#EAE7DC",
-        hoverclr:"#E98074"
+        background: "#EAE7DC",
+        hoverclr: "#E98074"
       },
-      backgroundImage:{
-        'bloodImg' : "url('/src/assets/ezgif.com-webp-to-jpg.jpg')"
+      backgroundImage: {
+        'bloodImg': "url('/src/assets/ezgif.com-webp-to-jpg.jpg')"
       }
     },
+  },
+  daisyui: {
+    themes: ["light"],
   },
   plugins: [require("daisyui")],
 }

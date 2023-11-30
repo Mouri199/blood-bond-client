@@ -1,28 +1,27 @@
 import { useEffect, useState } from 'react';
 
-import Blogs from './Blogs';
-import BlogBanner from './BlogBanner';
 import { Helmet } from 'react-helmet-async';
+import Draft from './Draft';
 
-const Blog = () => {
+const Drafts = () => {
     const [blog, setBlog] = useState([])
     useEffect(() => {
 
-        fetch('http://localhost:8000/blogs')
+        fetch('http://localhost:8000/blogPublish')
             .then(res => res.json())
             .then(data => setBlog(data))
     }, [])
     return (
         <div>
             <Helmet>
-                <title>Blood Bond | Blog </title>
+                <title>Blood Bond | Draft </title>
             </Helmet>
 
 
 
             <div className='grid my-16 lg:grid-cols-2 grid-cols-1 lg:mx-20 gap-10'>
                 {
-                    blog?.map(blogs => <Blogs key={blogs._id} blogs={blogs}></Blogs>)
+                    blog?.map(blogPublish => <Draft key={blogPublish._id} blogPublish={blogPublish}></Draft>)
                 }
             </div>
 
@@ -31,4 +30,4 @@ const Blog = () => {
     );
 };
 
-export default Blog;
+export default Drafts

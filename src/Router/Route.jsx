@@ -23,6 +23,7 @@ import AdminUser from "../Components/AdminUser/AdminUser";
 import WelcomeDashboard from "../Components/HomePage/Dashboard/WelcomeDashboard/WelcomeDashboard";
 import ContentManagement from "../Components/HomePage/Dashboard/ContentManagement/ContentManagement";
 import VoluenteerHome from "../Components/HomePage/Dashboard/VoluenteerHome.jsx/VoluenteerHome";
+import Drafts from "../Components/HomePage/Dashboard/Drafts/Drafts";
 
 
 
@@ -103,6 +104,10 @@ export const router = createBrowserRouter([
       {
         path: '/dashboard/contentmanagement/addblog',
         element: <ContentManagement></ContentManagement>
+      },
+      {
+        path:'/dashboard/draft',
+        element: <Drafts></Drafts>
       },
 
       // admin route

@@ -1,7 +1,7 @@
 import axios from "axios";
 import useAuth from "./useAuth";
 import { useNavigate } from "react-router-dom";
-
+ 
 
 const axiosSecure = axios.create({
     baseURL: 'http://localhost:8000'
@@ -35,7 +35,7 @@ const useAxiosSecure = () => {
         }
         return Promise.reject(error);
     })
-    return axiosSecure
+    return axiosSecure 
 };
 
 export default useAxiosSecure;

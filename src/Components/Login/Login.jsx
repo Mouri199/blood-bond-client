@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from "react-simple-captcha";
@@ -6,7 +6,12 @@ import Swal from "sweetalert2";
 import img from "../../assets/authentication1.png"
 import { Helmet } from "react-helmet-async";
 import useAuth from "../Hook/useAuth";
+
 const Login = () => {
+
+   
+
+
     const { loginUser, signInWithGoogle } = useAuth()
     const [signError, setSignError] = useState();
     const [signSuccess, setSignSuccess] = useState();

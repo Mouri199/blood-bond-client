@@ -56,7 +56,7 @@ const AdminCreateDonation = () => {
     return (
         <>
             <Helmet>
-                Blood Bond || Create Donation Request
+                <title>Blood Bond | Create Donation Request </title>
             </Helmet>
             <div className="bg-[#F4F3F0] p-24">
                 <h1 className="text-3xl font-extrabold">Create Donation Request</h1>

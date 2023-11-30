@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import { IoMdPerson } from "react-icons/io";
 import { LuForward } from "react-icons/lu";
+import { Helmet } from "react-helmet-async";
 
 const BlogDetails = () => {
     const blogDetails = useLoaderData();
@@ -9,6 +10,9 @@ const BlogDetails = () => {
     return (
 
         <div className="text-gray-600 lg:w-[1000px] mx-auto ">
+           <Helmet>
+                <title>Blood Bond | Blog Details </title>
+            </Helmet>
             <div className="lg:flex gap-8 ">
 
                 <div className="bg-[#F9FAFB] px-5 my-10 lg:py-20  ">
@@ -28,7 +32,7 @@ const BlogDetails = () => {
                             </div>
                         </div>
                         <div className="lg:text-start  text-center">
-                            <h2 className="lg:text-3xl font-semibold my-3 ">{name}</h2>
+                            <h2 className="lg:text-3xl font-semibold my-3 ">{title}</h2>
                             <p>{content}</p>
                         </div>
                     </div>

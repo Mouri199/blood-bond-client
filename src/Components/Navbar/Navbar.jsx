@@ -2,6 +2,8 @@ import { Link, NavLink } from "react-router-dom";
 
 import img from '../../assets/Blood Donation Logo.png'
 import useAuth from "../Hook/useAuth";
+import { useState } from "react";
+import { useEffect } from "react";
 
 
 const Navbar = () => {
@@ -47,6 +49,7 @@ const Navbar = () => {
 
 
                         <nav>
+
                             <ul className="lg:flex md:flex hidden lg:sticky mr-9 text-2xl font-semibold gap-7">
                                 <li className="hover:underline hover:text-white">
                                     <NavLink to="/">Home</NavLink>

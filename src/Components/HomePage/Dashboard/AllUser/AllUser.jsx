@@ -3,6 +3,7 @@ import { FaTrashAlt, FaUser } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hook/useAxiosSecure";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import { Helmet } from "react-helmet-async";
 
 
 const AllUser = () => {
@@ -34,7 +35,7 @@ const AllUser = () => {
             })
     }
 
-    const handleBlocked= user => {
+    const handleBlocked = user => {
         axiosSecure.patch(`/users/blocked/${user._id}`)
             .then(res => {
                 console.log(res.data)
@@ -128,6 +129,9 @@ const AllUser = () => {
     }
     return (
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+            <Helmet>
+                <title>Blood Bond | All User </title>
+            </Helmet>
             <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
@@ -178,10 +182,10 @@ const AllUser = () => {
 
                             <td>
                                 {
-                                    donor.status ==='blocked' && <p>Blocked</p>
+                                    donor.status === 'blocked' && <p>Blocked</p>
                                 }
                                 {
-                                    donor.status ==='active' && <p>Active</p>
+                                    donor.status === 'active' && <p>Active</p>
                                 }
                             </td>
                             <td className="px-6 py-4">

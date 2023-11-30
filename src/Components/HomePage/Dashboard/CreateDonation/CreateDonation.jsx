@@ -35,7 +35,7 @@ const CreateDonation = () => {
         register,
         handleSubmit,
         reset,
-        formState: { errors }
+        formState: { errors } 
     } = useForm()
     const onSubmit = data => {
         console.log(data)
@@ -55,7 +55,7 @@ const CreateDonation = () => {
     return (
         <>
             <Helmet>
-                Blood Bond || Create Donation Request
+                Blood Bond | Create Donation Request
             </Helmet>
             <div className="bg-[#F4F3F0] py-16">
                 <h1 className="text-3xl font-extrabold">Create Donation Request</h1>

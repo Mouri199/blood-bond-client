@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import useAdmin from "../Hook/useAdmin";
 
 const DonationRequest = () => {
     const [donors, setDonors] = useState([]);
     const [loading, setLoading] = useState(true);
-    const isAdmin = true
+    const [isAdmin] =useAdmin()
 
     const updateDonorStatus = (id, newStatus) => {
         setDonors(prevDonors =>
@@ -113,7 +114,7 @@ const DonationRequest = () => {
                                                     </>
                                                 ) : (
                                                     <> <li onClick={() => setInprogress(donor._id)}><a>Inprogress</a></li>
-                                                        <li onClick={() => setDone(donor._id)}><a>Done</a></li>
+                                                        <li  onClick={() => setDone(donor._id)}><a>Done</a></li>
                                                         <li onClick={() => setCancel(donor._id)}><a>Cancel</a></li></>
                                                 )}
                                            

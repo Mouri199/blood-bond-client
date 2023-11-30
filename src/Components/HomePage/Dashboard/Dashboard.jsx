@@ -61,6 +61,12 @@ const Dashboard = () => {
                                     Content Management
                                 </NavLink>
                             </li>
+                            <li>
+                                <NavLink to="/dashboard/draft">
+                                    <FaCodePullRequest></FaCodePullRequest>
+                                    Drafts
+                                </NavLink>
+                            </li>
                         </>
                     ) : isVolunteer ? (
                         <>

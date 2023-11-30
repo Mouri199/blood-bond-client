@@ -17,4 +17,4 @@ const useAdmin = () => {
     return [isAdmin, isAdminLoading,refetch]
 };
  
-export default useAdmin; 
+export default useAdmin;  

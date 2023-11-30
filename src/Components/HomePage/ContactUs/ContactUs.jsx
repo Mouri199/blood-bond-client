@@ -1,8 +1,12 @@
+import { Helmet } from "react-helmet-async";
 
 
 const ContactUs = () => {
     return (
         <div>
+              <Helmet>
+                <title>Blood Bond | Contact Us </title>
+            </Helmet>
             <div className="lg:flex items-center my-10 lg:mx-52 gap-10 mx-10">
                 <div>
                     <h3 className="lg:text-5xl text-4xl font-lora lg:w-[600px]">
