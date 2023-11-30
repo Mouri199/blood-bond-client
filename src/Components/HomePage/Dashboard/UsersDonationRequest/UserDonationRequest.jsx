@@ -8,7 +8,7 @@ const UserDonationRequest = () => {
 
     useEffect(() => {
        
-        fetch(`http://localhost:8000/recentDonor`)
+        fetch(`https://blood-bond-server.vercel.app/recentDonor`)
             .then((response) => response.json())
             .then((data) => setDonors(data))
             .catch((error) => console.error("Error fetching data:", error));

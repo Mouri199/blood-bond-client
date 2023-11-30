@@ -29,7 +29,7 @@ const Draft = ({ blogPublish }) => {
             title: data.title,
             content: data.content
         }
-        await axios.put(`http://localhost:8000/blogsUpdate/${data.id}`,formData)
+        await axios.put(`https://blood-bond-server.vercel.app/blogsUpdate/${data.id}`, formData)
             .then((res) => {
                 console.log(res);
                 refetch()
@@ -40,16 +40,23 @@ const Draft = ({ blogPublish }) => {
 
     const handlePublish = data => {
         console.log(data)
-        axiosSecure.post("http://localhost:8000/blogs", data)
+        axiosSecure.post("https://blood-bond-server.vercel.app/blogs", data)
             .then(res => {
                 if (res.data.insertedId)
                     Swal.fire(" ", "Blog published successfully!", "success")
-                // reset();
-                // navi('/services')
+                axiosSecure.delete(`/blogPublish/${data._id}`)
+                    .then(res => {
+                        if (res.data.deletedCount > 0) {
+                            refetch()
+                           
+                        }
+                    })
+
             })
             .catch(error => {
                 if (error) {
                     Swal.fire("", "Something went wrong!", "error")
+
                 }
             })
     }
@@ -69,12 +76,13 @@ const Draft = ({ blogPublish }) => {
                 axiosSecure.delete(`/blogPublish/${blog._id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
-                            // refetch()
+                           
                             Swal.fire({
                                 title: "Deleted!",
                                 text: "Blog has been deleted.",
                                 icon: "success"
                             });
+                            refetch()
                         }
                     })
             }
@@ -95,7 +103,7 @@ const Draft = ({ blogPublish }) => {
                     {
                         isAdmin ?
                             (<div className='flex justify-between'>
-                              
+
                                 <div className='flex'>
                                     <button className="inline-flex items-center lg:mr-3 mr-1 px-3 py-2 text-sm font-medium text-center text-white bg-redclr rounded-lg hover:bg-hoverclr focus:ring-4 focus:outline-none " onClick={() => document.getElementById('my_modal_1').showModal()}>Edit</button>
                                     <dialog id="my_modal_1" className="modal">

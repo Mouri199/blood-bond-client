@@ -18,7 +18,7 @@ const AdminCreateDonation = () => {
 
     useEffect(() => {
         // Fetch district data
-        fetch('http://localhost:8000/district')
+        fetch('https://blood-bond-server.vercel.app/district')
             .then(response => response.json())
             .then(data => setDistricts(data))
             .catch(error => console.error('Error fetching district data:', error));
@@ -26,7 +26,7 @@ const AdminCreateDonation = () => {
 
     useEffect(() => {
         // Fetch upazila data
-        fetch('http://localhost:8000/upozela')
+        fetch('https://blood-bond-server.vercel.app/upozela')
             .then(response => response.json())
             .then(data => setUpazilas(data))
             .catch(error => console.error('Error fetching upazila data:', error));
@@ -40,7 +40,7 @@ const AdminCreateDonation = () => {
     } = useForm()
     const onSubmit = data => {
         console.log(data)
-        axiosPublic.post("http://localhost:8000/bloodDonor", data)
+        axiosPublic.post("https://blood-bond-server.vercel.app/bloodDonor", data)
             .then(res => {
                 if (res.data.insertedId)
                     Swal.fire(" ", "Donation Request added successfully!", "success")

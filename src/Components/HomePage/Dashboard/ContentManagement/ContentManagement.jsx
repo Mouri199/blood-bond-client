@@ -13,7 +13,7 @@ const ContentManagement = () => {
     } = useForm()
     const onSubmit = data => {
         console.log(data)
-        axiosPublic.post("http://localhost:8000/blogPublish", data)
+        axiosPublic.post("https://blood-bond-server.vercel.app/blogPublish", data)
             .then(res => {
                 if (res.data.insertedId)
                     Swal.fire(" ", "Content Management added successfully!", "success")

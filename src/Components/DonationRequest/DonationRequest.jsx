@@ -18,7 +18,7 @@ const DonationRequest = () => {
     };
 
     const setCancel = (id) => {
-        axios.put(`http://localhost:8000/cancelBloodDonor/${id}`)
+        axios.put(`https://blood-bond-server.vercel.app/cancelBloodDonor/${id}`)
             .then((res) => {
                 console.log(res);
                 updateDonorStatus(id, "Cancelled");
@@ -28,7 +28,7 @@ const DonationRequest = () => {
     };
 
     const setInprogress = (id) => {
-        axios.put(`http://localhost:8000/inprogressBloodDonor/${id}`)
+        axios.put(`https://blood-bond-server.vercel.app/inprogressBloodDonor/${id}`)
             .then((res) => {
                 console.log(res);
                 updateDonorStatus(id, "In Progress");
@@ -36,7 +36,7 @@ const DonationRequest = () => {
             .catch((error) => console.error("Error updating status:", error));
     };
     const setPending = (id) => {
-        axios.put(`http://localhost:8000/pendingBloodDonor/${id}`)
+        axios.put(`https://blood-bond-server.vercel.app/pendingBloodDonor/${id}`)
             .then((res) => {
                 console.log(res);
                 updateDonorStatus(id, "Pending");
@@ -45,7 +45,7 @@ const DonationRequest = () => {
     };
 
     const setDone = (id) => {
-        axios.put(`http://localhost:8000/doneBloodDonor/${id}`)
+        axios.put(`https://blood-bond-server.vercel.app/doneBloodDonor/${id}`)
             .then((res) => {
                 console.log(res);
                 updateDonorStatus(id, "Done");
@@ -54,7 +54,7 @@ const DonationRequest = () => {
     };
 
     useEffect(() => {
-        fetch("http://localhost:8000/bloodDonor")
+        fetch("https://blood-bond-server.vercel.app/bloodDonor")
             .then((response) => response.json())
             .then((data) => setDonors(data))
             .catch((error) => console.error("Error fetching data:", error));

@@ -7,7 +7,7 @@ const Drafts = () => {
     const [blog, setBlog] = useState([])
     useEffect(() => {
 
-        fetch('http://localhost:8000/blogPublish')
+        fetch('https://blood-bond-server.vercel.app/blogPublish')
             .then(res => res.json())
             .then(data => setBlog(data))
     }, [])

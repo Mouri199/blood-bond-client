@@ -20,7 +20,7 @@ const AdminUser = () => {
         const fetchUserData = async () => {
             if (user) {
                 try {
-                    const response = await fetch(`http://localhost:8000/profile?email=${user.email}`);
+                    const response = await fetch(`https://blood-bond-server.vercel.app/profile?email=${user.email}`);
                     const data = await response.json();
                     const matchedUser = data.find((userData) => userData.email === user.email);
                     setUserData(matchedUser);
@@ -42,7 +42,7 @@ const AdminUser = () => {
             upazila: data.upazila,
             blood: data.blood
         }
-        await axios.put(`http://localhost:8000/users/${data.id}`, formData)
+        await axios.put(`https://blood-bond-server.vercel.app/users/${data.id}`, formData)
             .then((res) => {
                 console.log(res);
 

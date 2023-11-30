@@ -8,7 +8,7 @@ const UserProfile = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:8000/profile?email=${user.email}`)
+            fetch(`https://blood-bond-server.vercel.app/profile?email=${user.email}`)
                 .then((res) => res.json())
                 .then((data) => {
                     // Assuming the API returns an array of users, find the one that matches the email

@@ -12,19 +12,20 @@ import useAxiosPublic from "../Hook/useAxiosPublic";
 
 
 const Register = () => {
-    
-    const axiosPublic = useAxiosPublic();
-    const [load] = useAuth()
 
+    const axiosPublic = useAxiosPublic();
+
+    const { createUser, updateUser, signInWithGoogle ,load} = useAuth()
+    const registerNavi = useNavigate()
     const [districts, setDistricts] = useState([]);
     const [upazilas, setUpazilas] = useState([]);
-  
-   
 
- 
+
+
+
     useEffect(() => {
         // Fetch district data
-        fetch('http://localhost:8000/district')
+        fetch('https://blood-bond-server.vercel.app/district')
             .then(response => response.json())
             .then(data => setDistricts(data))
             .catch(error => console.error('Error fetching district data:', error));
@@ -32,7 +33,7 @@ const Register = () => {
 
     useEffect(() => {
         // Fetch upazila data
-        fetch('http://localhost:8000/upozela')
+        fetch('https://blood-bond-server.vercel.app/upozela')
             .then(response => response.json())
             .then(data => setUpazilas(data))
             .catch(error => console.error('Error fetching upazila data:', error));
@@ -47,8 +48,6 @@ const Register = () => {
 
 
 
-    const { createUser, updateUser, signInWithGoogle } = useAuth()
-    const registerNavi = useNavigate()
 
 
     const onSubmit = data => {
@@ -101,7 +100,7 @@ const Register = () => {
                 console.log(googleSign);
                 const userInfo = {
                     name: googleSign.displayName,
-                    email: googleSign.email, 
+                    email: googleSign.email,
 
 
                 }

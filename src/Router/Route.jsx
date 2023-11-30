@@ -68,12 +68,12 @@ export const router = createBrowserRouter([
       {
         path: '/availabledonor/:id',
         element: <PrivateRoute><AvailableDonor></AvailableDonor></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:8000/bloodDonor/${params.id}`)
+        loader: ({ params }) => fetch(`https://blood-bond-server.vercel.app/bloodDonor/${params.id}`)
       },
       {
         path: '/blogDetails/:id',
         element: <BlogDetails></BlogDetails>,
-        loader: ({ params }) => fetch(`http://localhost:8000/blogDetails/${params.id}`)
+        loader: ({ params }) => fetch(`https://blood-bond-server.vercel.app/blogDetails/${params.id}`)
       }
     ]
   },

@@ -7,7 +7,7 @@ const HomeTestimonial = () => {
 
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch('http://localhost:8000/reviews')
+        fetch('https://blood-bond-server.vercel.app/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])

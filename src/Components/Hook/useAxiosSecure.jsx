@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
  
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:8000'
+    baseURL: 'https://blood-bond-server.vercel.app'
 })
 const useAxiosSecure = () => {
     const { logoutUser } = useAuth()

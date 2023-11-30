@@ -11,7 +11,7 @@ const MyDonation = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:8000/donorrequest?email=${user?.email}`)
+        fetch(`https://blood-bond-server.vercel.app/donorrequest?email=${user?.email}`)
             .then((response) => response.json())
             .then((data) => setDonors(data))
             .catch((error) => console.error("Error fetching data:", error));
