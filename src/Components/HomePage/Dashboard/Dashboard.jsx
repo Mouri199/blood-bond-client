@@ -21,7 +21,7 @@ const Dashboard = () => {
                 <title>Blood Bond | Dashboard </title>
             </Helmet>
             {/* dashboard side bar */}
-            <div className="w-64 lg:min-h-screen bg-redclr">
+            <div className="w-64  lg:min-h-screen bg-redclr">
                 <ul className="menu p-4">
                     {isAdmin ? (
                         <>
@@ -135,7 +135,7 @@ const Dashboard = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/order/contactus">
+                        <NavLink to="/contact">
                             <FaEnvelope></FaEnvelope>
                             Contact
                         </NavLink>
@@ -145,7 +145,7 @@ const Dashboard = () => {
 
             {/* dashboard content */}
             <div>
-                <h1 className="flexlg:px-40 justify-center lg:text-3xl font-semibold py-10">
+                <h1 className="flex lg:px-40 justify-center lg:text-3xl font-semibold py-10">
                     Welcome {user?.displayName}, Your blood donation saves lives. Thank you for being a hero today!
                 </h1>
                 <Outlet />

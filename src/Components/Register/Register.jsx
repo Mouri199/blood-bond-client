@@ -15,7 +15,7 @@ const Register = () => {
 
     const axiosPublic = useAxiosPublic();
 
-    const { createUser, updateUser, signInWithGoogle ,load} = useAuth()
+    const { createUser, updateUser, signInWithGoogle, load } = useAuth()
     const registerNavi = useNavigate()
     const [districts, setDistricts] = useState([]);
     const [upazilas, setUpazilas] = useState([]);
@@ -161,8 +161,7 @@ const Register = () => {
                                 {errors.name && <span className='text-red-800'>Name is required</span>}
                             </div>
 
-
-                            <div className="form-control">
+                            <div>
                                 <label className="label">
                                     <span className="label-text">Photo URL</span>
                                 </label>

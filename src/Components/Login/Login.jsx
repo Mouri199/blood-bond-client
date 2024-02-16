@@ -9,9 +9,6 @@ import useAuth from "../Hook/useAuth";
 
 const Login = () => {
 
-   
-
-
     const { loginUser, signInWithGoogle } = useAuth()
     const [signError, setSignError] = useState();
     const [signSuccess, setSignSuccess] = useState();

@@ -143,8 +143,8 @@ const AdminUser = () => {
 
 
                         <div key={userData._id} className="relative overflow-x-auto">
-                            <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                <thead className="text-xs text-gray-900 uppercase dark:text-gray-400">
+                            <table className="w-full text-sm text-left rtl:text-right text-gray-500 ">
+                                <thead className="text-xs text-gray-900 uppercase ">
                                     <tr>
                                         <th scope="col" className="px-6 py-3">
 
@@ -156,40 +156,40 @@ const AdminUser = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr className="bg-white dark:bg-gray-800">
-                                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <tr className="bg-white ">
+                                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                                             Full Name
                                         </th>
                                         <td className="px-6 py-4">
                                             {userData.name}
                                         </td>
                                     </tr>
-                                    <tr className="bg-white dark:bg-gray-800">
-                                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <tr className="bg-white ">
+                                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                                             Email
                                         </th>
                                         <td className="px-6 py-4">
                                             {userData.email}
                                         </td>
                                     </tr>
-                                    <tr className="bg-white dark:bg-gray-800">
-                                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <tr className="bg-white ">
+                                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                                             District
                                         </th>
                                         <td className="px-6 py-4">
                                             {userData.district}
                                         </td>
                                     </tr>
-                                    <tr className="bg-white dark:bg-gray-800">
-                                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <tr className="bg-white ">
+                                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                                             District
                                         </th>
                                         <td className="px-6 py-4">
                                             {userData.district}
                                         </td>
                                     </tr>
-                                    <tr className="bg-white dark:bg-gray-800">
-                                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <tr className="bg-white ">
+                                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                                             Blood Group
                                         </th>
                                         <td className="px-6 py-4">

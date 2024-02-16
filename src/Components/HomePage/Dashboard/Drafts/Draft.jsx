@@ -9,16 +9,22 @@ import axios from 'axios';
 import useAdmin from '../../../Hook/useAdmin';
 import useVoluenteer from '../../../Hook/useVoluenteer';
 import useAxiosSecure from '../../../Hook/useAxiosSecure';
+import useBlog from '../../../Hook/useBlog';
+
+
+
 
 const Draft = ({ blogPublish }) => {
+    const [blog, blogRefetch] = useBlog()
     const { title, img, content, _id } = blogPublish || {}
     const [isAdmin, refetch] = useAdmin()
     const [isVoluenteer] = useVoluenteer()
     const axiosSecure = useAxiosSecure()
+
     console.log(blogPublish);
     const {
         register,
-        handleSubmit,
+        handleSubmit
     } = useForm()
 
 
@@ -32,9 +38,10 @@ const Draft = ({ blogPublish }) => {
         await axios.put(`https://blood-bond-server.vercel.app/blogsUpdate/${data.id}`, formData)
             .then((res) => {
                 console.log(res);
-                refetch()
+                blogRefetch()
             })
             .catch((error) => console.error("Error updating status:", error))
+
 
     };
 
@@ -43,12 +50,14 @@ const Draft = ({ blogPublish }) => {
         axiosSecure.post("https://blood-bond-server.vercel.app/blogs", data)
             .then(res => {
                 if (res.data.insertedId)
+
                     Swal.fire(" ", "Blog published successfully!", "success")
                 axiosSecure.delete(`/blogPublish/${data._id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             refetch()
-                           
+
+
                         }
                     })
 
@@ -76,7 +85,7 @@ const Draft = ({ blogPublish }) => {
                 axiosSecure.delete(`/blogPublish/${blog._id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
-                           
+
                             Swal.fire({
                                 title: "Deleted!",
                                 text: "Blog has been deleted.",
@@ -96,7 +105,7 @@ const Draft = ({ blogPublish }) => {
                 </a>
                 <div className="p-5">
                     <a href="#">
-                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{title}</h5>
+                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">{title}</h5>
                     </a>
                     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{content}</p>
 
@@ -137,7 +146,7 @@ const Draft = ({ blogPublish }) => {
                                                         <input defaultValue={content} type="text" name="photo" {...register("content")} className="input input-bordered w-full" />
                                                     </label>
                                                 </div>
-                                                <input type="submit" value="Add Blog" className="btn bg-redclr mx-auto  hover:bg-hoverclr w-full my-10" />
+                                                <input type="submit" value="Update Blog" className="btn bg-redclr mx-auto  hover:bg-hoverclr w-full my-10" />
                                                 <input type="text" name="" value={_id} className='hidden' {...register("id")} id="" />
                                             </form>
                                             <div className="modal-action">

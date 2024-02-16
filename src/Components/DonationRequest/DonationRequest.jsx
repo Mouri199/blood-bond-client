@@ -4,10 +4,14 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import useAdmin from "../Hook/useAdmin";
 
+
 const DonationRequest = () => {
     const [donors, setDonors] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [isAdmin] =useAdmin()
+    const [isAdmin] = useAdmin()
+    const [disabledButtons, setDisabledButtons] = useState([]);
+
+
 
     const updateDonorStatus = (id, newStatus) => {
         setDonors(prevDonors =>
@@ -17,41 +21,67 @@ const DonationRequest = () => {
         );
     };
 
-    const setCancel = (id) => {
-        axios.put(`https://blood-bond-server.vercel.app/cancelBloodDonor/${id}`)
-            .then((res) => {
-                console.log(res);
-                updateDonorStatus(id, "Cancelled");
-            })
-            .catch((error) => console.error("Error updating status:", error))
-            .finally(() => setLoading(false));
-    };
 
     const setInprogress = (id) => {
-        axios.put(`https://blood-bond-server.vercel.app/inprogressBloodDonor/${id}`)
-            .then((res) => {
-                console.log(res);
-                updateDonorStatus(id, "In Progress");
-            })
-            .catch((error) => console.error("Error updating status:", error));
+        if (!disabledButtons.includes(`inprogress_${id}`)) {
+            setDisabledButtons((prevButtons) => [...prevButtons, `inprogress_${id}`]);
+
+            axios
+                .put(`https://blood-bond-server.vercel.app/inprogressBloodDonor/${id}`)
+                .then((res) => {
+                    console.log(res);
+                    updateDonorStatus(id, "In Progress");
+                })
+                .catch((error) => console.error("Error updating status:", error))
+                .finally(() => setLoading(false));
+        }
     };
-    const setPending = (id) => {
-        axios.put(`https://blood-bond-server.vercel.app/pendingBloodDonor/${id}`)
-            .then((res) => {
-                console.log(res);
-                updateDonorStatus(id, "Pending");
-            })
-            .catch((error) => console.error("Error updating status:", error));
+    const setDone = (id) => {
+        if (!disabledButtons.includes(`done_${id}`)) {
+            setDisabledButtons((prevButtons) => [...prevButtons, `done_${id}`]);
+
+            axios
+                .put(`https://blood-bond-server.vercel.app/doneBloodDonor/${id}`)
+                .then((res) => {
+                    console.log(res);
+                    updateDonorStatus(id, "Done");
+                })
+                .catch((error) => console.error("Error updating status:", error))
+                .finally(() => setLoading(false));
+        }
     };
 
-    const setDone = (id) => {
-        axios.put(`https://blood-bond-server.vercel.app/doneBloodDonor/${id}`)
-            .then((res) => {
-                console.log(res);
-                updateDonorStatus(id, "Done");
-            })
-            .catch((error) => console.error("Error updating status:", error));
+    const setCancel = (id) => {
+        if (!disabledButtons.includes(`cancel_${id}`)) {
+            setDisabledButtons((prevButtons) => [...prevButtons, `cancel_${id}`]);
+
+            axios
+                .put(`https://blood-bond-server.vercel.app/cancelBloodDonor/${id}`)
+                .then((res) => {
+                    console.log(res);
+                    updateDonorStatus(id, "Cancel");
+
+                })
+                .catch((error) => console.error("Error updating status:", error))
+                .finally(() => setLoading(false));
+        }
     };
+    const setPending = (id) => {
+        if (!disabledButtons.includes(`pending_${id}`)) {
+            setDisabledButtons((prevButtons) => [...prevButtons, `pending_${id}`]);
+
+            axios
+                .put(`https://blood-bond-server.vercel.app/pendingBloodDonor/${id}`)
+                .then((res) => {
+                    console.log(res);
+                    updateDonorStatus(id, "Pending");
+                })
+                .catch((error) => console.error("Error updating status:", error))
+                .finally(() => setLoading(false));
+        }
+    };
+
+
 
     useEffect(() => {
         fetch("https://blood-bond-server.vercel.app/bloodDonor")
@@ -68,8 +98,8 @@ const DonationRequest = () => {
                 </Helmet>
 
                 <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-                    <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <table className="w-full text-sm text-left rtl:text-right text-gray-500 ">
+                        <thead className="text-xs text-gray-700 uppercase bg-gray-50  ">
                             <tr>
                                 <th scope="col" className="px-6 py-3">
                                     Requester name
@@ -93,9 +123,9 @@ const DonationRequest = () => {
                             {donors.map((donor) => (
                                 <tr
                                     key={donor._id}
-                                    className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
+                                    className="odd:bg-white  even:bg-gray-50  border-b "
                                 >
-                                    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                                         {donor.requestername}
                                     </th>
                                     <td className="px-6 py-4">{donor.donationdate}</td>
@@ -107,17 +137,17 @@ const DonationRequest = () => {
                                             <ul className=" shadow menu bg-base-100">
                                                 {isAdmin ? (
                                                     <>
-                                                        <li onClick={() => setInprogress(donor._id)}><a>Inprogress</a></li>
-                                                        <li onClick={() => setDone(donor._id)}><a>Done</a></li>
-                                                        <li onClick={() => setCancel(donor._id)}><a>Cancel</a></li>
-                                                        <li onClick={() => setPending(donor._id)}><a>Pending</a></li>
+                                                        <button className="disabled:text-red-400" disabled={disabledButtons.includes(`inprogress_${donor._id}`)} onClick={() => setInprogress(donor._id)}><a>Inprogress</a></button>
+                                                        <button className="disabled:text-red-400" disabled={disabledButtons.includes(`done_${donor._id}`)} onClick={() => setDone(donor._id)}><a>Done</a></button>
+                                                        <button className="disabled:text-red-400" disabled={disabledButtons.includes(`cancel_${donor._id}`)} onClick={() => setCancel(donor._id)}><a>Cancel</a></button>
+                                                        <button className="disabled:text-red-400" disabled={disabledButtons.includes(`pending_${donor._id}`)} onClick={() => setPending(donor._id)}><a>Pending</a></button>
                                                     </>
                                                 ) : (
-                                                    <> <li onClick={() => setInprogress(donor._id)}><a>Inprogress</a></li>
-                                                        <li  onClick={() => setDone(donor._id)}><a>Done</a></li>
-                                                        <li onClick={() => setCancel(donor._id)}><a>Cancel</a></li></>
+                                                    <> <button onClick={() => setInprogress(donor._id)}><a>Inprogress</a></button>
+                                                        <button onClick={() => setDone(donor._id)}><a>Done</a></button>
+                                                        <button onClick={() => setCancel(donor._id)}><a>Cancel</a></button></>
                                                 )}
-                                           
+
                                             </ul>
                                         </details>
                                     </td>

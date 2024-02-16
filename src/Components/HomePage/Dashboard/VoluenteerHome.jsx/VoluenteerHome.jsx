@@ -51,7 +51,7 @@ const VoluenteerHome = () => {
                                 </thead>
                                 <tbody>
                                     <tr className="bg-white dark:bg-gray-800">
-                                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                                             Full Name
                                         </th>
                                         <td className="px-6 py-4">
@@ -59,7 +59,7 @@ const VoluenteerHome = () => {
                                         </td>
                                     </tr>
                                     <tr className="bg-white dark:bg-gray-800">
-                                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                                             Email
                                         </th>
                                         <td className="px-6 py-4">
@@ -67,7 +67,7 @@ const VoluenteerHome = () => {
                                         </td>
                                     </tr>
                                     <tr className="bg-white dark:bg-gray-800">
-                                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                                             District
                                         </th>
                                         <td className="px-6 py-4">
@@ -75,7 +75,7 @@ const VoluenteerHome = () => {
                                         </td>
                                     </tr>
                                     <tr className="bg-white dark:bg-gray-800">
-                                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                                             Blood Group
                                         </th>
                                         <td className="px-6 py-4">

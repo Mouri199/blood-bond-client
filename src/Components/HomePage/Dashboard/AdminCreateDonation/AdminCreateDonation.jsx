@@ -40,7 +40,7 @@ const AdminCreateDonation = () => {
     } = useForm()
     const onSubmit = data => {
         console.log(data)
-        axiosPublic.post("https://blood-bond-server.vercel.app/bloodDonor", data)
+        axiosPublic.post("https://blood-bond-server.vercel.app/createDonor", data)
             .then(res => {
                 if (res.data.insertedId)
                     Swal.fire(" ", "Donation Request added successfully!", "success")
@@ -98,7 +98,7 @@ const AdminCreateDonation = () => {
 
                             <label>
 
-                                <input type="text"  name="name" {...register("requestername")} placeholder="Requester Name" className="input  input-bordered w-full" />
+                                <input type="text" name="name" {...register("requestername")} placeholder="Requester Name" className="input  input-bordered w-full" />
                                 {errors.requestername && <span>Requester Name is required</span>}
                             </label>
                         </div>
@@ -108,7 +108,7 @@ const AdminCreateDonation = () => {
                                 <span className="label-text">Requester Email</span>
                             </label>
                             <label>
-                                <input type="text"  name="chef" {...register("email")} placeholder="Requester Email" className="input input-bordered w-full" />
+                                <input type="text" name="chef" {...register("email")} placeholder="Requester Email" className="input input-bordered w-full" />
                                 {errors.email && <span>Requester Email is required</span>}
                             </label>
                         </div>
@@ -193,6 +193,16 @@ const AdminCreateDonation = () => {
                                 {errors.donationtime && <span>Donation Time is required</span>}
                             </label>
                         </div>
+                    </div>
+
+                    <div className="form-control md:w-1/2">
+                        <label className="label">
+                            <span className="label-text">Status</span>
+                        </label>
+                        <label>
+                            <input type="text" name="details" {...register("status")} placeholder="Status" className="input input-bordered w-full" />
+                            {errors.status && <span> Status is required</span>}
+                        </label>
                     </div>
 
                     <input type="submit" value="Submit" className="btn bg-redclr hover:bg-hoverclr w-[200px]" />

@@ -16,9 +16,9 @@ const Footer = () => {
                             <h4 className="font-semibold text-black">Product</h4>
 
                             <div className="mt-3 grid space-y-3">
-                                <p><a className="inline-flex gap-x-2 text-black hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="#">Pricing</a></p>
-                                <p><a className="inline-flex gap-x-2 text-black hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="#">Changelog</a></p>
-                                <p><a className="inline-flex gap-x-2 text-black hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="#">Docs</a></p>
+                                <p><a className="inline-flex gap-x-2 text-black hover:text-gray-200 " href="#">Pricing</a></p>
+                                <p><a className="inline-flex gap-x-2 text-black hover:text-gray-200 " href="#">Changelog</a></p>
+                                <p><a className="inline-flex gap-x-2 text-black hover:text-gray-200 " href="#">Docs</a></p>
                             </div>
                         </div>
 
@@ -27,10 +27,10 @@ const Footer = () => {
                             <h4 className="font-semibold text-black">Company</h4>
 
                             <div className="mt-3 grid space-y-3">
-                                <p><a className="inline-flex gap-x-2 text-black hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="#">About us</a></p>
-                                <p><a className="inline-flex gap-x-2 text-black hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="#">Blog</a></p>
-                                <p><a className="inline-flex gap-x-2 text-black hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="#">Careers</a> <span className="inline ms-1 text-xs bg-redclr text-white py-1 px-2 rounded-lg">Were hiring</span></p>
-                                <p><a className="inline-flex gap-x-2 text-black hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="#">Customers</a></p>
+                                <p><a className="inline-flex gap-x-2 text-black hover:text-gray-200 " href="#">About us</a></p>
+                                <p><a className="inline-flex gap-x-2 text-black hover:text-gray-200 " href="#">Blog</a></p>
+                                <p><a className="inline-flex gap-x-2 text-black hover:text-gray-200 " href="#">Careers</a> <span className="inline ms-1 text-xs bg-redclr text-white py-1 px-2 rounded-lg">Were hiring</span></p>
+                                <p><a className="inline-flex gap-x-2 text-black hover:text-gray-200 " href="#">Customers</a></p>
                             </div>
                         </div>
                     </div>
@@ -40,12 +40,12 @@ const Footer = () => {
                         <h4 className="font-semibold text-black">Stay up to date</h4>
 
                         <form>
-                            <div className="mt-4 flex flex-col items-center gap-2 sm:flex-row sm:gap-3 bg-white rounded-lg p-2 dark:bg-gray-800">
+                            <div className="mt-4 flex flex-col items-center gap-2 sm:flex-row sm:gap-3 bg-white rounded-lg p-2 ">
                                 <div className="w-full">
                                     <label className="sr-only">Search</label>
-                                    <input type="text" id="hero-input" name="hero-input" className="py-3 px-4 block w-full border-transparent rounded-lg text-sm  disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-transparent dark:text-black dark:focus:ring-gray-600" placeholder="Enter your email" />
+                                    <input type="text" id="hero-input" name="hero-input" className="py-3 px-4 block w-full border-transparent rounded-lg text-sm  disabled:opacity-50 disabled:pointer-events-none  " placeholder="Enter your email" />
                                 </div>
-                                <a className="w-full sm:w-auto whitespace-nowrap p-3 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-redclr text-white hover:bg-hoverclr disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="#">
+                                <a className="w-full sm:w-auto whitespace-nowrap p-3 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-redclr text-white hover:bg-hoverclr disabled:opacity-50 disabled:pointer-events-none  " href="#">
                                     Subscribe
                                 </a>
                             </div>

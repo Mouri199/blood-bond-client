@@ -9,11 +9,11 @@ import Swal from 'sweetalert2';
 const FundingForm = () => {
     const stripe = useStripe();
     const elements = useElements();
-    const axiosSecure =useAxiosSecure ()
+    const axiosSecure = useAxiosSecure()
 
-    useEffect(()=>{
-        axiosSecure.post('/create-payment')
-    },[])
+    useEffect(() => {
+        axiosSecure.post('/create-payment-intent')
+    }, [axiosSecure])
     const [error, setError] = useState('')
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -40,7 +40,7 @@ const FundingForm = () => {
             console.log('[PaymentMethod]', paymentMethod);
             setError('')
             Swal.fire("", "Payment successfull", "success")
-          e.reset()
+            
         }
     }
 

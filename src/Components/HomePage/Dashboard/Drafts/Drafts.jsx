@@ -2,15 +2,10 @@ import { useEffect, useState } from 'react';
 
 import { Helmet } from 'react-helmet-async';
 import Draft from './Draft';
+import useBlog from '../../../Hook/useBlog';
 
 const Drafts = () => {
-    const [blog, setBlog] = useState([])
-    useEffect(() => {
-
-        fetch('https://blood-bond-server.vercel.app/blogPublish')
-            .then(res => res.json())
-            .then(data => setBlog(data))
-    }, [])
+    const [blog, refetch, isLoading] = useBlog()
     return (
         <div>
             <Helmet>

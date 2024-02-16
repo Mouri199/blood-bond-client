@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 const HomeBanner = () => {
     return (
         <div>
-            <div >
+            {/* <div >
                 <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
                     <SwiperSlide>
                         <div className="hero lg:h-[700px] h-[200px]" style={{ backgroundImage: 'url(https://i.ibb.co/9VDzYWd/hm33.png)' }}>
@@ -70,6 +70,27 @@ const HomeBanner = () => {
                         </div>
                     </SwiperSlide>
                 </Swiper>
+            </div> */}
+            <div className="hero lg:h-[700px] h-[200px] " style={{ backgroundImage: 'url(https://i.ibb.co/bv2kpqJ/r1.jpg)' }}>
+                <div className="hero-overlay bg-opacity-60"></div>
+                <div className="hero-content text-center text-neutral-content">
+                    <div className="max-w-md">
+                        <h1 className="mb-5 text-5xl font-bold">Donate Blood!</h1>
+                        <p className="my-3 lg:text-7xl text-3xl text-white font-semibold">
+                            <Typewriter
+                                words={['Donate Blood', 'And Inspire', 'Others.']}
+                                loop={5}
+                                cursor
+                                cursorStyle='_'
+                                typeSpeed={70}
+                                deleteSpeed={50}
+                                delaySpeed={1000}
+
+                            />
+                        </p>
+                        <Link to='/contactus'><button className="lg:p-2 p-1 rounded-xl bg-redclr text-white hover:bg-hoverclr">Contact Us</button></Link>
+                    </div>
+                </div>
             </div>
             <div className='lg:flex justify-center bg-[#E7E7E7]'>
                 <div className='bg-black p-5  lg:w-[500px] text-white'>

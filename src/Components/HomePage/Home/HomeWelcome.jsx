@@ -10,9 +10,9 @@ const HomeWelcome = () => {
                     <img className='lg:w-[400px] lg:mx-0 mx-16 w-[300px]' src={img} alt="" />
                 </div>
                 <div className='lg:ml-20 lg:mx-0 md:mx-10'>
-                    <p className='lg:text-5xl dark:text-white lg:text-start text-center font-semibold'>About Us</p>
-                    <p className='lg:text-3xl dark:text-white lg:text-start text-center  font-bold my-5'>Welcome to <span className='text-redclr'>Blood Bond Organization</span></p>
-                    <div className='flex justify-between text-lg lg:mx-0 mx-10 dark:text-white gap-10'>
+                    <p className='lg:text-5xl  lg:text-start text-center font-semibold'>About Us</p>
+                    <p className='lg:text-3xl  lg:text-start text-center  font-bold my-5'>Welcome to <span className='text-redclr'>Blood Bond Organization</span></p>
+                    <div className='flex justify-between text-lg lg:mx-0 mx-10  gap-10'>
                         <div>
                             <div className='flex items-center gap-3'>
                                 <MdKeyboardDoubleArrowRight className='text-redclr'></MdKeyboardDoubleArrowRight> <p>Good Service</p>
@@ -39,7 +39,7 @@ const HomeWelcome = () => {
                         </div>
                     </div>
                     <div className='flex lg:justify-start justify-center'>
-                        <button className='btn my-4 bg-redclr text-white dark:bg-gray-800 hover:bg-slate-600'>About More</button>
+                        <button className='btn my-4 bg-redclr text-white  hover:bg-slate-600'>About More</button>
                     </div>
                 </div>
 

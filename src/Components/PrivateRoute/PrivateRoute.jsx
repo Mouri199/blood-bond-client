@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import { AuthProvider } from "../AuthContributor/AuthContributor";
+
 import { Navigate, useLocation } from "react-router-dom";
 import PropTypes from 'prop-types'
 import Swal from "sweetalert2";
